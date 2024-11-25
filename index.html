@@ -1,1 +1,427 @@
-<h1>Comprobando que funciona el servidor</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Hojas de estilo-->
+    <link rel="stylesheet" href="css/stilos.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <script src="script/scripts.js"></script>
+    <!--Fondos de google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chicle&family=Edu+NSW+ACT+Foundation:wght@400..700&family=Pacifico&display=swap" rel="stylesheet">
+    <!--icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>RESTAURANT</title>
+</head>
+<body>
+    <!--Menu de navegacion-->
+    <nav class="menu-navegacion">
+        <div class="contenedor menu__flex">
+            <a class="menu__enlace" href="#portada">Inicio</a>
+            <a class="menu__enlace" href="#sobremi">Sobre mi</a>
+            <a class="menu__enlace" href="#servicio">Servicios</a>
+            <a class="menu__enlace" href="#especiales">Especiales</a>
+            <a class="menu__enlace" href="#contacto">Contactos</a>
+            <a class='boton boton--secundario menu__enlace' href="#loginModal" id="loginBtn">Login</a>
+        </div>
+    </nav>
+        <!-- Modal para el formulario -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>REGISTRO</h2>
+                <form action="conexion.php" method="POST">
+                    <label for="usuario">Usuario:</label>
+                    <input type="text" id="nombre_usuario" name="usuario" required><br><br>
+        
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" name="contrasena" required><br><br>
+        
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre_completo" name="nombre" required><br><br>
+        
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" name="correo" required><br><br>
+        
+                    <button type="submit">Registrar</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            var modal = document.getElementById("loginModal");
+            var btn = document.getElementById("loginBtn");
+            var span = document.getElementsByClassName("close")[0];
+        
+            // Cuando el usuario hace clic en el botón de login, abre el modal
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+        
+            // Cuando el usuario hace clic en el botón de cierre (X), cierra el modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+        
+            // Cuando el usuario hace clic fuera del modal, también lo cierra
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+        <!-- Portada -->
+        <header id="portada" class="portada">
+            <div class="portada__texto">
+                <div class="contenedor">
+                    <h1>El Rincón Sabroso</h1>
+                    <p class="ocultar-en-movil">"El Rincón Sabroso es un rincón acogedor 
+                        donde la pasión por la gastronomía se encuentra con la frescura 
+                        de los ingredientes locales. Nuestro menú está inspirado en los 
+                        sabores auténticos de la tierra, fusionados con toques modernos que 
+                        despiertan los sentidos. Desde el primer bocado hasta el último, te 
+                        invitamos a disfrutar de una experiencia culinaria única, acompañada de un 
+                        ambiente cálido y familiar. En Sabor del Sol, cada plato es una celebración de 
+                        la tradición y la creatividad, donde el sol siempre brilla en cada sabor."</p>
+                    <a class='boton boton--secundario' href='/login/login'>login</a>
+                </div>
+            </div>
+        </header>
+     
+    <div class="contenedor">
+     <!-- Sobre Mi -->
+     <h2>Sobre Mi</h2>
+     <section id="sobremi" class="sobre-mi">
+        <article class="mision">\
+            <h3>Misi&oacute;n</h3>
+            <div class="text-center">
+                <img class="sobre-mi__img"  src="image/mision.jpg" alt="">
+            </div>
+            <div>    
+            <p class="ocultar-en-movil">"Brindar a nuestros clientes una experiencia culinaria excepcional, utilizando ingredientes frescos y de calidad, con recetas que honran la tradición y la creatividad. Nuestro compromiso es ofrecer un servicio amable y cercano, creando un espacio en el que todos se sientan como en casa, mientras promovemos el disfrute de la buena comida y el respeto por la cultura gastronómica."</p>
+            </div>
+        </article>
+        <article class="vision">
+            <h3>Visi&oacute;n</h3>
+            <div class="text-center">
+                <img class="sobre-mi__img" src="image/vision.jpg" alt="">
+            </div>
+            <div>    
+            <p class="ocultar-en-movil">"Ser un referente gastronómico en la región, ofreciendo una experiencia única que combine lo mejor de la cocina tradicional con la innovación. Buscamos ser un lugar donde cada comida sea una celebración de los sabores auténticos, brindando un ambiente cálido y acogedor para nuestros clientes, y contribuyendo al desarrollo de la cultura local."</p>
+            </div>
+        </article>
+     </section>
+     <!-- Servicios -->
+     <h2 id="servicio">Servicios</h2>
+        <div class="servicios">
+            <main id="riconSabores">
+                <h3>Rincon de Sabores</h3>
+                <section class="info-principal">
+
+
+                    <article class="info__articulo">
+                        <div class="text-center">
+                            <img class="info__imagen" src="image/cafee.jpg" alt="">
+                        </div>
+                        <h4>Los Mejores Desayunos</h4>
+                        <div>
+                            <p class="ocultar-en-movil">"Brindar a nuestros clientes una experiencia culinaria excepcional, utilizando ingredientes frescos y de calidad, con recetas que honran la tradición y la creatividad. Nuestro compromiso es ofrecer un servicio amable y cercano, creando un espacio en el que todos se sientan como en casa, mientras promovemos el disfrute de la buena comida y el respeto por la cultura gastronómica."</p>
+                        </div>
+                        <div class="flex-end">
+                            <input class="boton boton--primario" type="button" value="más información" onclick="mostrarVentana1()">
+                        </div>
+                        <!-- Ventana emergente -->
+                        <div id="ventanaEmergente1" class="ventana">
+                            <div class="ventana__contenido">
+                                <div class="ventana__recuadro">
+                                    <div class="ventana__encabezado">
+                                        <h5>Los Mejores Desayunos</h5>
+                                    </div>
+                                    <div class="ventana__subtitulo">
+                                        <h6>Desayuno Mexicano:Chilaquiles</h6>
+                                        <p>Totopos bañados en salsa roja o verde, acompañados de pollo desmenuzado, queso fresco, crema, cebolla y huevo estrellado. A menudo se sirve con frijoles refritos y guarniciones como aguacate o rábanos.</p>
+                                    </div>
+                                    <div class="ventana__subtitulo">
+                                        <h6>Desayuno Español:Tostada con tomate y jamón</h6>
+                                        <p>Pan tostado cubierto con tomate rallado, aceite de oliva, sal y jamón ibérico. A menudo acompañado de café con leche o zumo de naranja fresco.</p>
+                                    </div>
+                                    <div class="ventana__subtitulo">
+                                        <h6>Desayuno Continental:Croissants, panecillos y mermelada</h6>
+                                        <p>Una selección de panes frescos como croissants, baguettes o panes integrales, servidos con mantequilla, mermelada o miel. Se acompaña con café, té o jugo.</p>
+                                    </div>
+                                    <button class="boton cerrar" onclick="cerrarVentana1()">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </article> 
+                    
+
+
+
+                    <article class="info__articulo">
+                        <div class="text-center">
+                            <img class="info__imagen" src="image/portada.jpg" alt="">
+                        </div>
+                        <h4>Las Mejores Postres</h4>
+                        <div>
+                            <p class="ocultar-en-movil">Desde clásicos como pasteles, helados y frutas frescas, hasta innovaciones que combinan texturas y sabores inesperados, el postre es una oportunidad para sorprender y encantar a los comensales. Los sabores dulces no solo satisfacen el gusto, sino que también evocan emociones y recuerdos, creando momentos de placer y disfrute compartido.</p>
+                        </div>
+                        <div class="flex-end">
+                            <input class="boton boton--primario" type="button" value="más información" onclick="mostrarVentana2()">
+                        </div>
+                        <!-- Ventana emergente -->
+                        <div id="ventanaEmergente2" class="ventana">
+                            <div class="ventana__contenido">
+                                <div class="ventana__recuadro">
+                                    <div class="ventana__encabezado">
+                                        <h5>Las Mejores Postres</h5>
+                                    </div>
+                                    <div class="ventana__subtitulo">
+                                        <h6>Postre Mexicano: Tres Leches</h6>
+                                        <p>Un pastel esponjoso bañado en una mezcla de tres tipos de leche (evaporada, condensada y crema), creando una textura suave y húmeda. Se adereza con un toque de canela y a veces con frutas frescas, como fresas o duraznos. Es un postre clásico que refleja la dulzura y la riqueza de la repostería mexicana.</p>
+                                    </div>
+                                    <div class="ventana__subtitulo">
+                                        <h6>Postre Español: Flan de Huevo</h6>
+                                        <p>Un flan suave y cremoso, hecho a base de huevos, leche, azúcar y esencia de vainilla, cubierto con un caramelo líquido que se derrite al entrar en contacto con el flan. Este postre es un clásico de la gastronomía española, conocido por su sencillez y sabor reconfortante.</p>
+                                    </div>
+                                    <div class="ventana__subtitulo">
+                                        <h6>Postre Continental: Tarta de Manzana</h6>
+                                        <p>Una tarta crujiente de manzana con un toque de canela y azúcar, con una capa de masa fina y hojaldrada que envuelve las manzanas caramelizadas. Es un postre universalmente amado, especialmente en las estaciones más frías, y a menudo se sirve con una bola de helado o crema batida.</p>
+                                    </div>
+                                    <button class="boton cerrar" onclick="cerrarVentana2()">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </article>
+
+
+                    <article class="info__articulo">
+                        <div class="text-center">
+                            <img class="info__imagen" src="image/ensalada.jpg" alt="">
+                        </div>
+                        <h4>Las mejores Platos tipicos</h4>
+                        <div>
+                            <p class="ocultar-en-movil">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum repellat corrupti
+                                facere necessitatibus? Quis consectetur ut eaque quas necessitatibus corrupti similique
+                                quasi ipsum qui, aperiam commodi labore quisquam magni quod.</p>
+                        </div>
+                        <div class="flex-end">
+                            <input class="boton boton--primario" type="button" value="más información" onclick="mostrarVentana3()">
+                        </div>
+                        <!-- Ventana emergente -->
+                        <div id="ventanaEmergente3" class="ventana">
+                            <div class="ventana__contenido">
+                                <div class="ventana__recuadro">
+                                    <div class="ventana__encabezado">
+                                        <h5>Título 3</h5>
+                                    </div>
+                                    <div class="ventana__subtitulo">
+                                        <h6>Subtítulo 1</h6>
+                                        <p>Concepto del subtítulo 1</p>
+                                    </div>
+                                    <div class="ventana__subtitulo">
+                                        <h6>Subtítulo 2</h6>
+                                        <p>Concepto del subtítulo 2</p>
+                                    </div>
+                                    <div class="ventana__subtitulo">
+                                        <h6>Subtítulo 3</h6>
+                                        <p>Concepto del subtítulo 3</p>
+                                    </div>
+                                    <button class="boton cerrar" onclick="cerrarVentana3()">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </main>
+            <!-- Especiales -->
+            <aside id="especiales" class="especiales">
+                <h3>Especiales</h3>
+                <!-- Especial 1 -->
+                <h4>Seccion de Bebidas</h4>
+                <ul>
+                    <img class="img-aside" src="image/vinos.jpg" alt="">
+                    <li><h5>Vinos Exclusivos para Cada Momento</h5></li>
+                    <li>
+                        <p>
+                        Ofrecemos una cuidada selección de vinos, desde tintos robustos 
+                        hasta blancos frescos, para realzar los sabores de nuestros platos. 
+                        Con opciones locales e internacionales, cada vino es el maridaje perfecto
+                        para cualquier ocasión. ¡Descubre el arte del buen vino con nosotros!
+                        </p>
+                    </li>    
+                </ul>
+                <input class="boton boton--secundario" type="button" value="mas detalles" onclick="mostrarVentana6()">
+                <!-- Ventana emergente -->
+                <div id="ventanaEmergente6" class="ventana-aside" style="display:none;">
+                    <div class="ventana-contenido">
+                        <ul>
+                            <li>
+                                <h2>Vino Campos de Solana</h2>
+                                <img class="img-aside2" src="image/campo solana.jpg" alt="Vino Campos de Solana">
+                                <p><span>Precio: </span> 20Bs</p>
+                                <p><span>Stock: </span> Disponible</p>
+                            </li>
+                            <li>
+                                <h2>Vino Kolbert</h2>
+                                <img class="img-aside2" src="image/kolbert.jpg" alt="Vino Kolbert">
+                                <p><span>Precio: </span> 25Bs</p>
+                                <p><span>Stock: </span> Disponible</p>
+                            </li>
+                        </ul>
+                        <button id="cerrar" class="boton boton--secundario" onclick="cerrarVentana6()">Cerrar</button>
+                    </div>
+                </div>
+
+
+
+                <!-- Especial 2 -->
+                <h4>Sección de Jugos</h4>
+                <ul>
+                    <img class="img-aside" src="image/jugos.jpg" alt="">
+                    <li><h5>Jugos Naturales para Cada Momento</h5></li>
+                    <li>
+                        <p>
+                            "Ofrecemos una cuidada selección de jugos naturales, 
+                            desde los más refrescantes cítricos hasta los más suaves 
+                            y afrutados, para complementar perfectamente nuestros platos. 
+                            Con opciones locales e internacionales, cada jugo es la elección 
+                            ideal para cualquier momento del día. ¡Descubre el sabor y 
+                            la frescura de la naturaleza con nosotros!"
+                        </p>
+                    </li>    
+                </ul>
+                <input class="boton boton--secundario" type="button" value="Más detalles" onclick="mostrarVentana4()">
+
+                <!-- Ventana emergente -->
+                <div id="ventanaEmergente4" class="ventana-aside" style="display:none;">
+                    <div class="ventana-contenido">
+                        <ul>
+                            <li>
+                                <h2>Germinados de brócoli, piña y jengibre</h2>
+                                <img class="img-aside2" src="image/broccoli.jpg" alt="Germinados de brócoli, piña y jengibre">
+                                <p><span>Jarra: </span> </p>
+                                <p><span>Precio: </span> 30 Bs</p>
+                                <p><span>Stock: </span> Disponible</p>
+                            </li>
+                            <li>
+                                <h2>Toronja, pepino y manzana</h2>
+                                <img class="img-aside2" src="image/toronja.jpg" alt="Toronja, pepino y manzana">
+                                <p><span>Jarra: </span> </p>
+                                <p><span>Precio: </span> 25 Bs</p>
+                                <p><span>Stock: </span> Disponible</p>
+                            </li>
+                        </ul>
+                        <button id="cerrar" class="boton boton--secundario" onclick="cerrarVentana4()">Cerrar</button>
+                    </div>
+                </div>
+
+                
+
+
+                <!-- Especial 3 -->
+                <h4>Sección de Jugos</h4>
+                <ul>
+                    <img class="img-aside" src="image/jugos.jpg" alt="">
+                    <li><h5>Cocteles para Cada Momento</h5></li>
+                    <li>
+                        <p>
+                            "Disfruta de una selecta variedad de cócteles, 
+                            desde los más refrescantes hasta los más exóticos, 
+                            ideales para cualquier ocasión. ¡Muchos más!"
+                        </p>
+                    </li>    
+                </ul>
+                <input class="boton boton--secundario" type="button" value="Más detalles" onclick="mostrarVentana5()">
+
+                <!-- Ventana emergente -->
+                <div id="ventanaEmergente5" class="ventana-aside" style="display:none;">
+                    <div class="ventana-contenido">
+                        <ul>
+                            <li>
+                                <h2>Coctel de Piña</h2>
+                                <img class="img-aside2" src="image/coctel de piña.jpg" alt="Coctel de Piña">
+                                <p><span>Precio: </span> 10 Bs</p>
+                                <p><span>Stock: </span> Disponible</p>
+                            </li>
+                            <li>
+                                <h2>Margarita</h2>
+                                <img class="img-aside2" src="image/margarita.jpg" alt="Margarita">
+                                <p><span>Precio: </span> 15 Bs</p>
+                                <p><span>Stock: </span> Disponible</p>
+                            </li>
+                        </ul>
+                        <button id="cerrar" class="boton boton--secundario" onclick="cerrarVentana5()">Cerrar</button>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+    </div>
+
+    <!-- Contactos -->
+    <section id="contacto" class="contactos">
+        <div class="contenedor">
+            <h2>Contactos</h2>
+            <div class="contactos__flex">
+                <div class="contacto__info">
+                    <form class="form">
+                        <fieldset class="form__contenido">
+                            <legend>Contactanos Registrando tus Datos</legend>
+                            <div class="campo">
+                                <label class="contacto__label">Nombres y Apellidos:</label>
+                                <input class="contacto__campo" type="text" placeholder="Ingrese nombre y apellido">
+                            </div>
+                            <div class="campo">
+                                <label class="contacto__label">Telefono:</label>
+                                <input class="contacto__campo" type="tel" placeholder="Ingrese numero de telefono">
+                            </div>
+                            <div class="campo">
+                                <label class="contacto__label">Correo Electronico:</label>
+                                <input class="contacto__campo" type="email" placeholder="Ingrese correo electronico">
+                            </div>
+                            <div class="campo">
+                                <label class="contacto__label">Pedido:</label>
+                                <textarea class="contacto__campo" cols="30" rows="3" placeholder="Ingrese su pedido"></textarea>
+                            </div>
+                            <div class="campo flex__boton">
+                                <input class="boton boton--primario" type="button" value="Enviar">
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="contactos__maps">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434410425!2d-122.41941548468182!3d37.77492927975906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c5f74a69d%3A0x4b3a61e10b0a6c0!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2ses!4v1623872194734!5m2!1sen!2ses"
+                        width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy" class="iframe">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="contenedor">
+            <div class="footer__contenido">
+                <p><span>Direcci&oacute;n: </span>Z.Vino Tinto /Av. Baltazar de Salas N°222</p>
+                <p><span>Telefono: </span>777-7777-77</p>
+            </div>
+            <div class="text-center">
+                <p class="text-center">Todos los derechos reservados por &copy;Grover Rojas</p>
+                <a href="https://www.facebook.com" target="_blank">
+                    <i class="fa fa-facebook-official" style="font-size:60px; padding: 2rem;"></i>
+                </a>
+                <a href="https://www.youtube.com" target="_blank">
+                    <i class="fa fa-youtube-play" style="font-size:60px; padding: 2rem;"></i>
+                </a>
+                <a href="https://wa.me/" target="_blank">
+                    <i class="fa fa-whatsapp" style="font-size:60px; padding: 2rem;"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

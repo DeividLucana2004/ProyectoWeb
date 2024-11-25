@@ -1,0 +1,800 @@
+:root {
+    --fuentePortada: "Pacifico", cursive;
+    --fuenteHeadding: "Chicle", serif;
+    --fuenteParrafos: "Edu NSW ACT Foundation", cursive;
+
+    --grisOscuro: #b7b7b7;
+    --grisClaro: #e5e5e5;
+
+    --blanco: #fff;
+    --negro: #000000;
+    --naranja: #f4932b;
+    --azul: #005ab9;
+}
+/*/////////////////////////////////////////////////////////////77*/
+/*/////////////ventana aside//////////////*/
+.ventana-aside {
+    position: fixed;
+    top: 20%; /* Ajuste para evitar el menú de navegación */
+    left: 50%;
+    transform: translate(-50%, 0); /* Centra horizontalmente sin afectar la posición vertical */
+    width: 90%; /* Ancho máximo de la ventana */
+    max-width: 600px;
+    max-height: 75%; /* Máxima altura ajustada */
+    background: rgba(255, 255, 255, 0.8); /* Fondo translúcido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid orange;
+    box-sizing: border-box;
+    overflow: auto; /* Permite desplazamiento si el contenido excede */
+    margin: 0;
+    border-radius: 10px;
+    padding: 10px;
+    background-image: url(../image/vinos.jpg); /* Fondo de imagen que cubre todo */
+    background-size: cover; /* Asegura que cubra todo el área */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.ventana-aside::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Agrega filtro oscuro sobre el fondo */
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.ventana-contenido {
+    color: black;
+    width: 100%; /* Asegura que ocupe todo el espacio disponible */
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    overflow: auto;
+}
+
+/* Estilo para el ul en dos columnas */
+.ventana-contenido ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide en dos columnas iguales */
+    gap: 20px; /* Espacio entre columnas y filas */
+    list-style: none; /* Elimina los puntos de las listas */
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Asegura que el ul ocupe todo el ancho disponible */
+}
+
+.ventana-contenido ul li {
+    text-align: center; /* Centra los elementos de cada celda */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo claro para resaltar cada elemento */
+    border-radius: 5px; /* Bordes suaves */
+    padding: 10px; /* Espaciado interno */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.ventana-contenido ul li img.img-aside2 {
+    width: 150px; /* Tamaño más pequeño para las imágenes */
+    height: 150px; /* Mismo alto para todas las imágenes */
+    object-fit: cover; /* Mantiene la proporción y cubre el espacio sin distorsionar */
+    border-radius: 5px;
+    margin: 10px 0; /* Espaciado vertical */
+}
+
+#cerrar {
+    margin-top: 10px;
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    align-self: center; /* Centra el botón */
+}
+
+#cerrar:hover {
+    background-color: darkorange;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .ventana-contenido ul {
+        grid-template-columns: 1fr; /* Cambia a una sola columna */
+        gap: 10px;
+    }
+}
+/*/////////////////////////////////////////////////////////////77*/
+/*/////////////imagen aside//////////////*/
+.img-aside {
+    width: 250px; /* Tamaño aumentado */
+    height: 250px; /* Tamaño aumentado */
+    border-radius: 50%;
+    object-fit: cover;
+    display: block; /* Permite centrar la imagen */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+/*/////////////////////////////////////////////////////////////////////*/
+/*Estilos del modal*/
+/* Modal básico */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #FFA500; /* Borde color naranja */
+    width: 40%; /* Ancho del formulario */
+    text-align: center; /* Centrado del contenido */
+}
+
+/* Estilo del título */
+.modal-content h2 {
+    color: #FFA500; /* Título color naranja */
+    border-bottom: 2px solid #FFA500; /* Borde debajo del título */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para los campos de entrada */
+.modal-content input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #FFA500; /* Borde naranja en los campos */
+    background-color: #333; /* Fondo gris oscuro para los campos */
+    color: white; /* Texto blanco dentro de los campos */
+}
+
+/* Estilo del botón de envío */
+.modal-content button {
+    width: 85%;
+    padding: 10px;
+    background-color: #FFA500; /* Fondo naranja */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+.modal-content button:hover {
+    background-color: #e68a00; /* Naranja más oscuro */
+}
+
+/* Botón de cierre */
+.close {
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    cursor: pointer;
+}
+
+/* Cambio de color del botón de cierre al pasar el mouse */
+.close:hover {
+    color: #FFA500; /* Naranja */
+}
+
+/* Centrado en la pantalla */
+.modal-content form {
+    margin-top: 20px;
+}
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////7/*/
+/* Estilo para la ventana emergente */
+.ventana {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.ventana__contenido {
+    background-image: url(../image/fondoRestaurante1.jpg); /* Fondo de la ventana como la imagen */
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    border: 2px solid orange;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: black; /* Color de texto negro */
+    border-radius: 8px; /* Bordes redondeados */
+    position: relative; /* Necesario para el fondo semitransparente detrás del texto */
+
+    width: 100%; /* Asegura que ocupe todo el espacio disponible */
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+
+/* Fondo semitransparente para mejorar la visibilidad del texto */
+.ventana__contenido::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo blanco semitransparente */
+    z-index: -1; /* Poner el fondo debajo del contenido */
+    border-radius: 8px; /* Mantener los bordes redondeados */
+}
+
+/* Recuadro plomo claro alrededor del contenido */
+.ventana__recuadro {
+    background-color: #B0B0B0; /* Color plomo claro */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.ventana__encabezado h5 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ventana__subtitulo h6 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.ventana__subtitulo p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.boton {
+    padding: 10px;
+    background-color: orange;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.boton.cerrar {
+    background-color: red;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/* Estilo cuando se muestra la ventana */
+.ventana.mostrar {
+    display: flex;
+}
+
+/* Para ocultar el texto en dispositivos móviles */
+.ocultar-en-movil {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .ocultar-en-movil {
+        display: none;
+    }
+}
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////7*/
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+/*//////////////////////////////*/
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px;
+    /* 1rem = 10px */
+    font-family: var(--fuenteParrafos);
+    background-image: linear-gradient(to top, var(--grisOscuro) 0%, var(--grisClaro) 70%);
+}
+
+@media (min-width: 760px) { 
+    .centrar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; 
+    }
+ }
+
+/* Globales */
+h1 {
+    font-family: var(--fuentePortada);
+    font-size: 9rem !important;
+    /* 9rem = 90px */
+    margin: 0 !important;
+    color: var(--blanco);
+
+}
+
+h2,
+h3,
+h4,
+h5 {
+    font-family: var(--fuenteHeadding);
+    text-align: center;
+}
+
+h2 {
+    font-size: 5rem;
+}
+
+h3 {
+    font-size: 4.5rem;
+}
+
+h4 {
+    font-size: 3.5rem;
+    text-align: left;
+}
+
+h5 {
+    font-size: 3rem;
+    text-align: left;
+    margin: 0;
+}
+
+p {
+    font-size: 2.5rem;
+    line-height: 1.5;
+    text-align: justify;
+}
+/*///////////////////////////////////*/
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 90%;
+}
+/*//////////////////////////////////*/
+/* Utilidades */
+.text-center {
+    text-align: center;
+}
+
+/* Menu de Navegacion */
+.menu-navegacion {
+    background-color: var(--negro);
+}
+
+@media (min-width: 760px) {
+    .menu-navegacion {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+}
+
+.flex-end {
+    display: flex;
+    justify-content: end;
+}
+
+.boton {
+    border: none;
+    border-radius: 1rem;
+    padding: 2rem 3rem;
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.boton--primario {
+    background-color: var(--azul);
+}
+.boton--primario:hover {
+    background-color: var(--naranja);
+    color: var(--negro);
+}
+
+
+@media (min-width: 760px) {
+    .menu__flex {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.menu__enlace {
+    display: block;
+    text-align: center;
+    color: var(--blanco);
+    font-size: 2.7rem;
+    text-decoration: none;
+    padding: 1.5rem;
+}
+
+@media (min-width: 760px) {
+    .menu__enlace {
+        padding: 2.5rem;
+    }
+}
+
+.menu__enlace:hover {
+    background-color: var(--naranja);
+    color: var(--negro);
+}
+
+/* Portada */
+.portada {
+    background-image: url(../image/portada.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 70rem;
+    position: relative;
+}
+
+.portada__texto {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    padding-top: 5rem;
+    text-align: center;
+}
+
+@media (min-width: 760px) {
+    .portada__texto {
+        padding-top: 23rem;
+    }
+}
+
+.portada p {
+    font-size: 2.5rem;
+    color: var(--blanco);
+}
+
+/* Sobre Mi */
+@media (min-width: 760px) {
+    .sobre-mi {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 50% 50%;
+        column-gap: 3rem;
+    }
+}
+
+.sobre-mi__img {
+    border-radius: 50%;
+    border: 2px solid var(--negro);
+}
+
+/* Servicios */
+@media (min-width: 760px) {
+    .servicios {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 3rem;
+    }
+}
+
+/* Rincon de sabores */
+.info__imagen {
+    margin-top: 5rem;
+    transition: transform 1s ease-in-out;
+    opacity: 0.6;
+    max-width: 100%;
+}
+
+.info__imagen:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.info__articulo .boton {
+    width: 100%;
+}
+
+@media (min-width: 760px) { 
+    .info__articulo .boton {
+        width: auto;
+    }
+}
+
+/* Especiales */
+.especiales {
+    background-color: var(--negro);
+    color: var(--blanco);
+    padding: 2rem;
+}
+
+li {
+    list-style: none;
+}
+
+.especiales li span {
+    font-weight: bold;
+}
+
+.boton--secundario {
+    background-color: var(--azul);
+}
+.boton--secundario:hover {
+    background-color: var(--naranja);
+    color: var(--negro);
+}
+
+/* Contactos */
+
+.contactos {
+    background-color: var(--negro);
+    margin: 5rem 0;
+    padding-bottom: 5rem;
+}
+
+@media (min-width: 760px) {
+    .contactos__flex {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 3rem;
+    }
+
+    .contactos {
+        background-image: url(../image/bg_especiales.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 75rem;
+    }
+}
+
+.contactos h2 {
+    padding-top: 10rem;
+    color: var(--blanco);
+}
+
+.contactos__maps {
+    text-align: center;
+    display: block;
+}
+
+@media (min-width: 760px) {
+    .contacto__info {
+        position: relative;
+    }
+
+    .form {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        height: 100%;
+        border-radius: 2rem;
+    }
+}
+
+@media (min-width: 960px) {
+    .form__contenido {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+        padding: 1rem;
+        margin: auto;
+    }
+}
+
+.form__contenido .boton {
+    width: 100%;
+}
+
+@media (min-width: 760px) { 
+    .form__contenido .boton {
+        width: auto;
+    }
+ }
+.contacto__label {
+    color: var(--blanco);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.contacto__campo {
+    display: block;
+    padding: 1rem;
+    width: 100%;
+    border: none;
+    border-radius: 1rem;
+    margin: 1rem 0;
+    font-size: 2rem;
+}
+
+fieldset {
+    border: none;
+}
+
+legend {
+    color: var(--blanco) !important;
+    font-family: var(--fuenteHeadding);
+    font-size: 3rem;
+    padding-top: 2rem !important;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+
+.campo:nth-child(4) {
+    grid-column: 1 / 3;
+}
+
+.flex__boton {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+input::placeholder,
+textarea::placeholder {
+    font-size: 2rem;
+    padding-left: 2rem;
+}
+
+.iframe {
+    max-width: 100%;
+}
+
+
+/* Footer */
+.footer {
+    background-color: var(--negro);
+    color: var(--blanco);
+    padding: 2rem 0;
+}
+
+@media (min-width: 760px) {
+    .footer__contenido {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 2rem;
+    }
+}
+
+.footer p {
+    line-height: 2.5;
+    margin: 0;
+}
+
+.footer .fa-brands {
+    padding-top: 2rem;
+    font-size: 4rem;
+}
+
+.footer span {
+    font-weight: bold;
+}
+
+/* login */
+
+.menu-navegacion .boton {
+    display: none;
+}
+
+@media (min-width: 760px) {
+    .menu-navegacion .boton {
+        display: block;
+        margin: 0;
+        padding: 2.2rem 3rem;
+        color: var(--blanco);
+        text-decoration: none;
+        cursor: default;
+    }
+}
+
+.portada__texto .boton {
+    text-decoration: none;
+    color: var(--blanco);
+
+}
+
+@media (min-width: 760px) {
+    .portada__texto .boton {
+        display: none;
+    }
+}
+
+.form_login {
+    margin: 0 auto;
+    margin-top: 5rem;
+    max-width: 50rem;
+    background-color: var(--negro);
+    text-align: center;
+    border-radius: 4rem;
+    padding: 2rem 4rem;
+}
+
+@media (min-width: 760px) { 
+    .form_login {
+        margin-top: .2rem;
+    }
+ }
+
+.form__logo {
+    max-width: 40%;
+    border-radius: 50%;
+    border: 2px solid var(--negro);
+    display: block;
+    margin: 0 auto;
+
+}
+
+
+.form__campo {
+    margin: 2rem 0;
+    text-align: start;
+}
+
+.form__label {
+    font-family: var(--fuenteParrafos);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    text-align: end;
+}
+
+.form__input {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 1rem 0;
+}
+
+.form_login .boton {
+    width: 100%;
+}
+
+@media (min-width: 760px) { 
+    .form_login .boton {
+        width: auto;
+    }
+}
+
+.bg_body {
+    background-image: linear-gradient(to left, var(--grisOscuro) 0%, var(--grisClaro) 70%);
+}
+
+.form_login a {
+    display: block;
+    text-decoration: none;
+    color: var(--blanco);
+    text-align: end;
+    padding-bottom: 1rem;
+    font-size: 2rem;
+}
+.icons{
+    padding-left: 3rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .ocultar-en-movil {
+        display: none; 
+    }
+}
